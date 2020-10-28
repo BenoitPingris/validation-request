@@ -30,5 +30,5 @@ func main() {
 ```
 
 - You need to call the `Validate` methods as a middleware and passing a struct with `validate` tags to it.
-- In the handler you can easily get the body from your request by calling the `FromContext` method by passing the request context as a parameter, and then cast it to the wished type
+- In the handler you can easily get the body from your request by calling the `FromContext` method and passing the request's context as a parameter, and then cast it to the desired type:
   - `body := validate.FromContext(r.Context()).(*BodyRequest)`
