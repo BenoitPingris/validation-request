@@ -1,4 +1,4 @@
-https://github.com/BenoitPingris/validation-request/workflows/go/badge.svg
+![Github Action Badge](https://github.com/BenoitPingris/validation-request/workflows/Go/badge.svg)
 
 # validation-request
 
