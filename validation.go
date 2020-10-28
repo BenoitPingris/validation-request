@@ -1,6 +1,5 @@
 package validation
 
-
 import (
 	"context"
 	"encoding/json"
@@ -42,6 +41,10 @@ func Validate(rules interface{}) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			b := reflect.New(reflect.TypeOf(rules)).Interface()
+			if r.Body == nil {
+				http.Error(w, "Invalid body.", http.StatusUnprocessableEntity)
+				return
+			}
 			if err := json.NewDecoder(r.Body).Decode(&b); err != nil {
 				http.Error(w, err.Error(), http.StatusBadRequest)
 				return
