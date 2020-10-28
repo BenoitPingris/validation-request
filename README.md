@@ -1,3 +1,5 @@
+https://github.com/BenoitPingris/validation-request/workflows/go/badge.svg
+
 # validation-request
 
 Middleware to validate incomming body using the [validator.v10](https://godoc.org/gopkg.in/go-playground/validator.v10) package
@@ -9,8 +11,7 @@ Middleware to validate incomming body using the [validator.v10](https://godoc.or
 
 ## How to use
 
-```golang
-
+```go
 type LoginRequest struct {
   Email string    `json:"email" validate:"email"`
   Password string `json:"password" validate:"min=6"`
