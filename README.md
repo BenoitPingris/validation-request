@@ -2,6 +2,11 @@
 
 Middleware to validate incomming body using the [validator.v10](https://godoc.org/gopkg.in/go-playground/validator.v10) package
 
+## Installation
+
+- `go get -u github.com/BenoitPingris/validation-request`
+
+
 ## How to use
 
 ```golang
@@ -23,5 +28,6 @@ func main() {
 }
 ```
 
-You need to call the `Validate` methods as a middleware and passing a struct with `validate` tags to it.
-
+- You need to call the `Validate` methods as a middleware and passing a struct with `validate` tags to it.
+- In the handler you can easily get the body from your request by calling the `FromContext` method by passing the request context as a parameter, and then cast it to the wished type
+  - `body := validate.FromContext(r.Context()).(*BodyRequest)`
